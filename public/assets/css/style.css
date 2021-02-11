@@ -1,0 +1,47 @@
+body{
+    background-color:rgb(212,212,212);
+}
+
+#login_container {
+    top: 25%;
+    left: 45%;
+    position:absolute;
+    width:360px;
+}
+
+#login_container h2 {
+    font-family: serif;
+}
+
+#login_container form {
+    background-color: white;
+    padding: 4%;
+}
+
+#login_container fieldset {
+    border: solid 0.1px gray;
+    padding: 0 4% 0 0;
+    height:100px;
+}
+
+#username {
+    margin: 4% 0 1% 4%;
+}
+
+#password {
+    margin: 0 0 4% 4%;
+}
+
+#submit {
+    float:right;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+/* main page */
+#main,#not_found_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

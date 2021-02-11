@@ -1,0 +1,8 @@
+DirectoryIndex public/app.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+</IfModule>
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/app.php?path=$1 [NC,L,QSA]

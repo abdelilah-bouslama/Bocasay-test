@@ -1,0 +1,6 @@
+{
+    "MARIADB_HOST" : "bocasay_db_server",
+    "MARIADB_DB" : "bocasay_db",
+    "MARIADB_USER" : "bocasay_user",
+    "MARIADB_PWD" : "bocasay_pwd"
+}

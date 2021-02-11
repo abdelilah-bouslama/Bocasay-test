@@ -1,0 +1,6 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^admin\.nutricoach\.io\.get\.herbaly\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.admin\.nutricoach\.io\.get\.herbaly\.com$
+RewriteRule ^/?$ "http\:\/\/admin\.nutricoach\.io" [R=301,L]
+

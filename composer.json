@@ -1,0 +1,14 @@
+{
+    "name": "bocasay/app",
+    "description": "application for test",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Abdelilah Bouslama",
+            "email": "bo.abdelilah@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "5.6.*"
+    }
+}

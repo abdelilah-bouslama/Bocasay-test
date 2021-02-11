@@ -1,0 +1,38 @@
+version: "3.3"
+
+services:
+  server:
+    container_name: bocasay-server
+    build: .
+    volumes:
+      - .:/var/www/bocasay
+    ports:
+      - "10.20.50.1:80:80"
+    networks:
+      public_net:
+      private_net:
+
+  bocasay_db_server:
+    container_name: bocasay_db_server
+    image: mariadb:10.4
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      private_net: 
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'bocasay_db'
+      MYSQL_USER: 'bocasay_user'
+      MYSQL_PASSWORD: 'bocasay_pwd'
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./database/bocasay.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  public_net:
+    ipam:
+      driver: default
+      config:
+          - subnet: 10.20.50.0/24
+  private_net:
