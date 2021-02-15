@@ -15,7 +15,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` VALUES (1,'test','test','2011-09-28 12:00:00');
+INSERT INTO `user` VALUES (1,'test',MD5('test'),'2011-09-28 12:00:00');
 
 
 CREATE TABLE `user_group` (
@@ -32,7 +32,7 @@ DELIMITER //
 --
 CREATE PROCEDURE `find_user`(IN `userName` varchar(255),IN `userPassword` varchar(255), IN `id_group` INT)
 BEGIN
-   SET @qu= CONCAT("SELECT u.* from user u JOIN user_group ug ON ug.id_user=u.id_user WHERE u.username = '", userName, "' AND u.password='",userPassword,"' AND ug.id_group = ", id_group);
+   SET @qu= CONCAT("SELECT u.* from user u JOIN user_group ug ON ug.id_user=u.id_user WHERE u.username = '", userName, "' AND u.password=MD5('",userPassword,"') AND ug.id_group = ", id_group);
    PREPARE myquery FROM @qu;
    EXECUTE myquery;
 END //
@@ -43,5 +43,5 @@ DELIMITER //
 --
 CREATE PROCEDURE `find_user_debug`(IN `userName` varchar(255),IN `userPassword` varchar(255), IN `id_group` INT)
 BEGIN
-   SELECT CONCAT("SELECT u.* from user u JOIN user_group ug ON ug.id_user=u.id_user WHERE u.username = '", userName, "' AND u.password='",userPassword,"' AND ug.id_group = ", id_group) as $qu;
+   SELECT CONCAT("SELECT u.* from user u JOIN user_group ug ON ug.id_user=u.id_user WHERE u.username = '", userName, "' AND u.password=MD5('",userPassword,"') AND ug.id_group = ", id_group) as $qu;
 END //
